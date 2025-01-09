@@ -83,3 +83,44 @@ Descripción: Máxima antigüedad de la contraseña en días.
 Ruta: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 Clave: [nombres de claves específicas de software antivirus]
 Descripción: Programas antivirus configurados para ejecutarse al inicio.
+
+
+####MRUs
+
+### Comandos más recientes (Ejecutados desde "Ejecutar")
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
+Clave: [a, b, c, ...]
+Descripción: Comandos recientes ejecutados desde la caja "Ejecutar" (por ejemplo, cmd, notepad).
+
+### Archivos recientes abiertos
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+Clave: [extensiones de archivos]
+Descripción: Historial de archivos recientes abiertos en el sistema (por ejemplo, .txt, .docx, .jpg).
+
+### Carpetas recientes abiertas
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentFileDirs
+Clave: [rutas de carpetas]
+Descripción: Rutas de carpetas que has abierto recientemente.
+
+### Accesos recientes desde el menú de inicio
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StartPage
+Clave: StartPage
+Descripción: Información sobre los accesos recientes desde el menú de inicio, aunque no siempre es fácil de leer directamente.
+
+### Accesos recientes en la barra de tareas
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband
+Clave: [entradas relacionadas con accesos recientes]
+Descripción: Información sobre los accesos recientes y anclados desde la barra de tareas.
+
+### Historial de documentos recientes de Microsoft Office (Ejemplo para Word)
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Office\<versión>\Word\Recent Files
+Clave: [documentos recientes]
+Descripción: Lista de documentos abiertos recientemente en Microsoft Word. Reemplaza <versión> con la versión de Office que estés utilizando (por ejemplo, 16.0 para Office 365).
+
+### Historial de documentos recientes en el Explorador de Windows
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+Clave: [extensiones de archivos]
+Descripción: Historial de documentos abiertos recientemente desde el Explorador de Windows.
+
+
+
