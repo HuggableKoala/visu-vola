@@ -1,0 +1,18 @@
+{
+    "project_name": "example_project",
+    "evidence_file_path": "/ruta/al/archivo/dmp",
+    "profile": "Win7SP1x64",
+    "creation_date": "2024-12-27T00:52:00",
+    "last_modified_date": "2024-12-27T00:52:00",
+    "agent_name": "Nombre del Agente",
+    "generated_files_dir": "/path/to/generated/files",
+    "command_history": [
+      "volatility -f memdump.dmp imageinfo",
+      "volatility -f memdump.dmp pslist"
+    ],
+    "generated_files": [
+      "/ruta/al/archivo/generado1.txt",
+      "/ruta/al/archivo/generado2.txt"
+    ]
+  }
+  

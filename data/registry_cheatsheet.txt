@@ -1,0 +1,85 @@
+# Cheatsheet de Registro
+
+## Información del Sistema
+
+### Nombre del PC
+Ruta: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName
+Clave: ComputerName
+
+### Usuarios Registrados
+Ruta: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList
+Clave: ProfileImagePath
+Descripción: Contiene las rutas de los perfiles de usuario.
+
+### Versión del Sistema Operativo
+Ruta: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion
+Clave: ProductName
+Descripción: Indica la versión del sistema operativo.
+
+### Fecha de Instalación del Sistema Operativo
+Ruta: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion
+Clave: InstallDate
+Descripción: Fecha y hora de instalación del sistema operativo.
+
+## Configuraciones de Red
+
+### Dirección IP
+Ruta: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces
+Clave: DhcpIPAddress
+Descripción: Dirección IP asignada por DHCP.
+
+### Nombre de Host
+Ruta: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+Clave: Hostname
+
+### Servidores DNS
+Ruta: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+Clave: NameServer
+Descripción: Lista de servidores DNS configurados.
+
+## Información de Software
+
+### Programas Instalados
+Ruta: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+Clave: DisplayName
+Descripción: Lista de programas instalados en el sistema.
+
+### Historial de Navegación (Internet Explorer)
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\TypedURLs
+Clave: URL
+
+### Últimos Archivos Abiertos
+Ruta: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+Clave: [extensiones de archivos]
+
+## Información de Hardware
+
+### Información del Procesador
+Ruta: HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\CentralProcessor\0
+Clave: ProcessorNameString
+
+### Memoria RAM
+Ruta: HKEY_LOCAL_MACHINE\HARDWARE\RESOURCEMAP\System Resources\Physical Memory
+Clave: .Translated
+
+### Información del BIOS
+Ruta: HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS
+Clave: BIOSVersion
+Descripción: Versión del BIOS instalada en el sistema.
+
+## Información de Seguridad
+
+### Configuración del Firewall
+Ruta: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy
+Clave: StandardProfile
+Descripción: Configuración del firewall.
+
+### Políticas de Contraseña
+Ruta: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+Clave: MaximumPasswordAge
+Descripción: Máxima antigüedad de la contraseña en días.
+
+### Software Antivirus
+Ruta: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+Clave: [nombres de claves específicas de software antivirus]
+Descripción: Programas antivirus configurados para ejecutarse al inicio.
