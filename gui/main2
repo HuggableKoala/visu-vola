@@ -1,0 +1,82 @@
+def create_widgets(self):
+    self.menu_bar = tk.Menu(self.root)
+    self.root.config(menu=self.menu_bar)
+
+    file_menu = tk.Menu(self.menu_bar, tearoff=0)
+    volatility2_menu = tk.Menu(self.menu_bar, tearoff=0)
+    process_menu = tk.Menu(volatility2_menu, tearoff=0)
+    memory_process_menu = tk.Menu(volatility2_menu, tearoff=0)
+    memory_kernel_menu = tk.Menu(volatility2_menu, tearoff=0)
+    network_menu = tk.Menu(volatility2_menu, tearoff=0)
+    registry_menu = tk.Menu(volatility2_menu, tearoff=0)
+    conversions_menu = tk.Menu(volatility2_menu, tearoff=0)
+    file_system_menu = tk.Menu(volatility2_menu, tearoff=0)
+    miscellaneous_menu = tk.Menu(volatility2_menu, tearoff=0)
+
+    self.menu_bar.add_cascade(label="Archivo", menu=file_menu)
+    self.menu_bar.add_cascade(label="Volatility 2", menu=volatility2_menu)
+
+    file_menu.add_command(label="Nuevo Proyecto", command=self.new_project)
+    file_menu.add_command(label="Proyectos Recientes", command=self.show_recent_projects)
+    file_menu.add_command(label="Guardar Estado del Proyecto", command=self.save_project_state)
+    file_menu.add_command(label="Cargar Proyecto", command=self.load_project)
+    file_menu.add_separator()
+    file_menu.add_command(label="Salir", command=self.root.quit)
+
+    volatility2_menu.add_command(label="Detectar Perfil", command=self.detect_profile)
+    volatility2_menu.add_cascade(label="Procesos y DLLs", menu=process_menu)
+    volatility2_menu.add_cascade(label="Memoria de Proceso", menu=memory_process_menu)
+    volatility2_menu.add_cascade(label="Memoria del Kernel y Objetos", menu=memory_kernel_menu)
+    volatility2_menu.add_cascade(label="Red", menu=network_menu)
+    volatility2_menu.add_cascade(label="Registro", menu=registry_menu)
+    volatility2_menu.add_cascade(label="Conversiones y Crash Dumps", menu=conversions_menu)
+    volatility2_menu.add_cascade(label="Sistema de Archivos", menu=file_system_menu)
+    volatility2_menu.add_cascade(label="Diversos", menu=miscellaneous_menu)
+
+    self.output_frame = tk.Frame(self.root)
+    self.output_frame.pack(side="left", expand=True, fill="both")
+    
+    self.result_text_left = tk.Text(self.output_frame, wrap="word")
+    self.result_text_left.pack(side="left", expand=True, fill="both")
+
+    self.filter_frame = tk.Frame(self.root)
+    self.filter_frame.pack(side="right", expand=True, fill="both")
+
+    self.filter_entry = tk.Entry(self.filter_frame)
+    self.filter_entry.pack(pady=5)
+
+    self.result_text_right = tk.Text(self.filter_frame, wrap="word")
+    self.result_text_right.pack(expand=True, fill="both")
+
+    self.filter_entry.bind("<Return>", self.apply_filter)
+
+    # Añadir comandos a los menús...
+
+
+
+
+def run_command(self, command_func, require_pid=False, require_dll_name=False):
+    if self.current_project_file:
+        project_data = load_project_file(self.current_project_file)
+        evidence_file_path = project_data["evidence_file_path"]
+        profile = project_data["profile"]
+        if profile:
+            pid = None
+            dll_name = None
+            if require_pid:
+                pid = simpledialog.askstring("Input", "Ingrese el PID (deje vacío si no es necesario):")
+            if require_dll_name:
+                dll_name = simpledialog.askstring("Input", "Ingrese el nombre de la DLL (deje vacío si no es necesario):")
+            if require_pid and require_dll_name:
+                output = command_func(evidence_file_path, profile, pid, dll_name)
+            elif require_pid:
+                output = command_func(evidence_file_path, profile, pid)
+            else:
+                output = command_func(evidence_file_path, profile)
+                
+            self.result_text_left.delete(1.0, tk.END)
+            self.result_text_left.insert(tk.END, output)
+        else:
+            self.show_error("El perfil no está configurado.")
+    else:
+        self.show_error("No hay proyecto abierto para ejecutar el comando.")
